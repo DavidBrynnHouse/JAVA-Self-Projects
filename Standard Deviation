@@ -1,0 +1,36 @@
+/*This program will calculate the standard deviation for a set of numbers terminating when a negative number is entered*/
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class StandardDeviation
+{
+   public static void main(String[] args) 
+   {
+      Scanner scan = new Scanner(System.in);
+      DecimalFormat fmt = new DecimalFormat ("0.###");
+      
+      double x;
+      double ss = 0;
+      double sd = 0;
+      double g = 0;
+      double m = 0;
+      double e = 0;
+      double f = 0;
+      int n = 0;
+      
+      System.out.println("Enter the values to find the Standard Deviation(negative to quit): ");
+      x = scan.nextInt();
+      while (x >= 0)
+      {
+         e += x;
+         f += Math.pow(x, 2);
+         n++;
+         x = scan.nextInt();
+      }
+      
+      m = e / n;
+      ss = f - (Math.pow(e, 2) / n);
+      sd = Math.sqrt(ss/(n-1));
+      System.out.print("Your Standard Deviation is: " + fmt.format(sd));
+   }
+}
