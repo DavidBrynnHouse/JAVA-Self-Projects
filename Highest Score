@@ -1,0 +1,48 @@
+/*
+ * Write a program that prompts the user to enter the num-
+ * ber of students and each student’s name and score, and finally displays the name
+ * of the student with the highest score
+ */
+import java.util.Scanner;
+
+public class AdditionGUI 
+{
+    public static void main(String[] args) 
+    {
+      Scanner scan = new Scanner(System.in);
+      Scanner scan2 = new Scanner(System.in);
+      
+      String studentName = "";
+      int studentScore;
+      int studentScore2;
+      int maxScore;
+      int numStudents;
+      
+      System.out.print("Enter the number of Students: ");
+      numStudents = scan.nextInt();
+      System.out.print("Enter the first students score: ");
+      studentScore = scan.nextInt();
+      System.out.print("Enter the name of that student: ");
+      String studentName2 = scan2.nextLine();
+      for (int i = 0; i < (numStudents - 1); i++)
+      {
+      
+      System.out.print("Enter the next students score: ");
+      studentScore2 = scan.nextInt();
+      
+         if (studentScore2 > studentScore)
+         {
+         System.out.print("Enter the name of that student: ");
+         studentName = scan2.nextLine();
+         studentScore = studentScore2;
+         }
+         else
+         {
+         System.out.print("Enter the name of that student: ");
+         studentName2 = scan2.nextLine();
+         }
+      
+      }
+      System.out.print("The student with the highest score is " + studentName);
+    }
+}
