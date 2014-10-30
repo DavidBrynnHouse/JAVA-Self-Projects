@@ -9,28 +9,28 @@ public class StandardDeviation
       Scanner scan = new Scanner(System.in);
       DecimalFormat fmt = new DecimalFormat ("0.###");
       
-      double x;
+      double userVal;
       double ss = 0;
-      double sd = 0;
-      double g = 0;
-      double m = 0;
-      double e = 0;
-      double f = 0;
+      double standardDeviation = 0;
+      double mean = 0;
+      double userValSum = 0;
+      double sumOfSquaredUserVal = 0;
       int n = 0;
       
       System.out.println("Enter the values to find the Standard Deviation(negative to quit): ");
-      x = scan.nextInt();
-      while (x >= 0)
+      userVal = scan.nextInt();
+      while (userVal >= 0)
       {
-         e += x;
-         f += Math.pow(x, 2);
+         userValSum += userVal;
+         sumOfSquaredUserVal += Math.pow(userVal, 2);
          n++;
-         x = scan.nextInt();
+         userVal = scan.nextInt();
       }
       
-      m = e / n;
-      ss = f - (Math.pow(e, 2) / n);
-      sd = Math.sqrt(ss/(n-1));
-      System.out.print("Your Standard Deviation is: " + fmt.format(sd));
+      mean = userValSum / n;
+      ss = sumOfSquaredUserVal - (Math.pow(userValSum, 2) / n);
+      standardDeviation = Math.sqrt(ss/(n - 1));
+      System.out.println("Your Standard Deviation is: " + fmt.format(standardDeviation));
+      System.out.print("And your mean is: " + fmt.format(mean));
    }
 }
