@@ -1,0 +1,39 @@
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class EmailScraper {
+
+	public static void main(String[] args) throws IOException 
+	{
+	
+        String[] newString;
+            try (Scanner input = new Scanner()) {
+                newString = new String[3445];
+                //reads the websites into the array
+                for(int index = 0; index < newString.length; index++)
+                    newString[index] = input.next();
+            }
+	      
+	      File file1 = new File("/home/david/workspace/Internship/bin/newFile2.txt");
+	      PrintWriter output = new PrintWriter(file1);
+	      
+	      int count = 0;
+		  //print out    
+	      for(String e: newString)
+	      {
+		   	  System.out.println("\n" + ++count + "\t" + e);
+			   	  
+		   	  	  try{
+			   		  output.print(WebReader.webReader(e));
+			   	  }
+			   	  catch(Exception ex){
+			   		  System.out.println("The above did not work");
+			   	  }
+			         
+		  }
+	   	  
+	}
+
+}
