@@ -1,0 +1,25 @@
+import java.io.IOException;
+
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+
+
+public class WebReader {
+	public static String webReader(String website) throws IOException{
+		//creates connection to website
+		Connection conn = Jsoup.connect(website);
+		conn.timeout(12000);
+		//creates doc with HTML of website
+		Document doc = conn.get();
+		
+		Elements elements = doc.select("*");
+		
+		
+		return elements.toString();
+		
+		}
+	
+}
